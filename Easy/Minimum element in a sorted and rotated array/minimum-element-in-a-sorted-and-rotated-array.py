@@ -22,8 +22,8 @@ class Solution:
                 else:
                     return(arr[mid])
          
-        if start == end :
-            return(arr[start])
+       # if start == end :
+            #return(arr[start])
         return(arr[start])
 
 
