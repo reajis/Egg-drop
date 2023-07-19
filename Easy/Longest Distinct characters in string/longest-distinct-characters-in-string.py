@@ -3,24 +3,28 @@
 class Solution:
 
     def longestSubstrDistinctChars(self, s):
-        n = len(s)
-        if n ==1 or n == 0:
-            return(n)
-        best =1
-        i =0
-        j=0
-        dicti =[]
-        while j<n:
-            if s[j] in dicti :
-                dicti.pop(0)
-                i+=1
-            else :
-                dicti.append(s[j])
-                length = j-i+1
-                best = max(length,best) 
-                j+=1
+        count = {}
+        l = 0
+        high = 0
+        r =0
+        prev_right =-1
+        while r < len(s):
+            if r != prev_right:
+                count[s[r]] = count.get(s[r],0) +1
+                prev_right =r
+          
+            length = r - l + 1
+            if count[s[r]] <= 1:
+                #print("1",s[r])
+                high = max(high, length)
+                r +=1
+            else:
+                #print("2",s[r])
+                count[s[l]] -= 1
+                l += 1
+            #print("high",high)
                 
-        return(best)
+        return high
 
             
             
