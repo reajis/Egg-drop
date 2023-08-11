@@ -11,10 +11,8 @@ def count(n):
             if j < points[i]:
                 arr[i][j] = arr[i-1][j]
             else:
-                if j == points[i] :
-                    arr[i][j] = arr[i-1][j] +1
-                else :
-                    arr[i][j] = arr[i-1][j] +arr[i][j-points[i]]
+                
+                arr[i][j] = arr[i-1][j] +arr[i][j-points[i]]
     return(arr[2][n])
     
 
