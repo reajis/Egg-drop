@@ -10,17 +10,14 @@ class Node:
 
 #Function to find the minimum element in the given BST.
 def minValue(root):
-    node = root
-    while node and node.left:
-        node = node.left
-    if not node:
-        return(-1)
-    return(node.data)
-    
-    
-    
-    
-
+    if root is None:
+        return -1
+    if root.left  == None and root.right == None:
+        return (root.data)
+    elif root.left == None:
+        return(root.data)
+    else:
+        return(minValue(root.left))
 
 #{ 
  # Driver Code Starts
