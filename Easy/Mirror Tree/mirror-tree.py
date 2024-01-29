@@ -11,15 +11,24 @@ class Node:
 
 class Solution:
     #Function to convert a binary tree into its mirror tree.
-    def mirror(self,root):
-        temp = root
-        if temp:
-            temp.left,temp.right = temp.right,temp.left
-            temp.left = self.mirror(temp.left)
-            temp.right = self.mirror(temp.right)
-            return(temp)
+    def mirror(self,node):
+
+        if (node == None):
+            return
         else:
-            return(temp)
+     
+            temp = node
+     
+     
+            """ swap the pointers in this node """
+            temp = node.left
+            node.left = node.right
+            node.right = temp
+            
+            
+            """ do the subtrees """
+            self.mirror(node.left)
+            self.mirror(node.right)
 
 
 #{ 
