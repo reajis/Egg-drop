@@ -2,16 +2,17 @@
 
 class Solution:
     def removeConsecutiveCharacter(self, S):
-        i = len(S)-1
-        j= len(S)-2
-        
-        while j>=0:
-            if S[i]==S[j]:
-                S = S[:i] +S[i+1:]
-            i = i-1
-            j = j-1
-        #print
-        return(S)
+        new_string = ""
+        for i in S:
+            if new_string == "":
+                new_string += i
+            elif new_string[-1] != i:
+                new_string += i
+        return(new_string )
+                
+            
+                
+        # code here
 
 
 #{ 
