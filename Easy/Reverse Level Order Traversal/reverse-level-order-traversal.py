@@ -8,21 +8,20 @@ class Node:
         self.right = None
 '''
 def reverseLevelOrder(root):
-    que = []
-    sol = []
-    que.append(root)
-    while que :
-        temp = que.pop(0)
-        sol.append(temp.data)
-        if temp.right:
-            que.append(temp.right)
-        if temp.left:
-            que.append(temp.left)
-        
-    sol.reverse()  
+    if root is None:
+        return ([])
+    ans = []
     
-    return(sol)
-
+    queue = []
+    queue.append(root)
+    while queue:
+        curr = queue.pop(0)
+        ans.append(curr.data)
+        if curr.right:
+            queue.append(curr.right)
+        if curr.left:
+            queue.append(curr.left)
+    return(ans[::-1])
 
 
 #{ 
