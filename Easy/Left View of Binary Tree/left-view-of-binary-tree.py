@@ -11,30 +11,26 @@ class Node:
 '''
 
 #Function to return a list containing elements of left view of the binary tree.
-
-
-def traversal(node,level,ans):
-    #ans = []
-            
-    if node == None :
-        return None
-            
-    if len(ans) == level:
-        #print(node.data, level,len(ans))
-        ans.append(node.data)
-    if node.left:
-        traversal(node.left,level+1,ans)
-    if node.right:    
-        traversal(node.right,level+1,ans)
-    
-    return(ans)
-    
-    
 def LeftView(root):
+    if root is None:
+       return([]) 
+    # DO LEVEL ORDER TRAVERSAL AND TAKE THE FIRST NUMBER FROM EACH LEVEL
     ans = []
-    traversal(root,0,ans)
+    que =[]
+    que.append(root)
+    while que:
+        breadth = len(que)
+        for i in range(breadth):
+            curr = que.pop(0)
+            if i ==0:
+                ans.append(curr.data)
+            if curr.left:
+                que.append(curr.left)
+            if curr.right:
+                que.append(curr.right)
     return(ans)
-    # code here
+                
+        
 
 
 #{ 
